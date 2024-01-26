@@ -39,7 +39,7 @@ function MailIcon(props) {
 export const metadata = {
   title: 'About',
   description:
-    'I’m Spencer Sharp. I live in New York City, where I design the future.',
+    'I’m Vincent Teune (two-knee). I live in Winter Garden Florida, where I design the future.',
 }
 
 export default function About() {
@@ -58,50 +58,46 @@ export default function About() {
         </div>
         <div className="lg:order-first lg:row-span-2">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
-            I’m Spencer Sharp. I live in New York City, where I design the
-            future.
+            I’m Vince. I believe in the impossible.
           </h1>
           <div className="mt-6 space-y-7 text-base text-zinc-600 dark:text-zinc-400">
             <p>
-              I’ve loved making things for as long as I can remember, and wrote
-              my first program when I was 6 years old, just two weeks after my
-              mom brought home the brand new Macintosh LC 550 that I taught
-              myself to type on.
+              From a young age, the thrill of creation has been the driving force in my life.
+              My journey began with an insatiable curiosity and a love for making things.
+              It didn't matter if the material was wood, metal, plastic, or the digital realm of silicon – each medium was a new canvas for my imagination.
+              Transforming ideas into tangible, unique creations has always been a source of exhilaration for me.
             </p>
             <p>
-              The only thing I loved more than computers as a kid was space.
-              When I was 8, I climbed the 40-foot oak tree at the back of our
-              yard while wearing my older sister’s motorcycle helmet, counted
-              down from three, and jumped — hoping the tree was tall enough that
-              with just a bit of momentum I’d be able to get to orbit.
+              Growing up, I was equally fascinated by the inner workings of things.
+              As a child surrounded by a family of skilled tradesmen and tinkerers, I quickly developed a deep appreciation for engineering and innovation, and imagination.
+              Whether it was dismantling old furnaces for scrap, working on cars with my dad, or constructing rockets in the backyard, I found my greatest joy in the process of building and understanding.
             </p>
             <p>
-              I spent the next few summers indoors working on a rocket design,
-              while I recovered from the multiple surgeries it took to fix my
-              badly broken legs. It took nine iterations, but when I was 15 I
-              sent my dad’s Blackberry into orbit and was able to transmit a
-              photo back down to our family computer from space.
+              This early passion laid the foundation for an eclectic and fulfilling career.
+              I've had the privilege of weaving my love for innovation through various industries, from mining to manufacturing, and from food and beverage to hospitality.
+              My professional journey has taken me through roles as diverse as IT specialist, software engineer, Postmaster, and CEO.
+              Each experience has broadened my perspective and reinforced a fundamental belief: Everything was once impossible, until someone did it.
             </p>
             <p>
-              Today, I’m the founder of Planetaria, where we’re working on
-              civilian space suits and manned shuttle kits you can assemble at
-              home so that the next generation of kids really <em>can</em> make
-              it to orbit — from the comfort of their own backyards.
+              Today, I stand proud as the founder of Kiwi Dragon Creations, where we specialize in small batch local manufacturing and custom fabrication.
+              Parallel to this, I continue to explore the digital world as a full-time software engineer in the logistics sector. And for a touch of personal flair, I daily drive my racecar – when it decides to cooperate!
             </p>
+            <p>
+              Through every endeavor, my mission remains the same: to bring innovative ideas to life and to keep pushing the boundaries of what's possible.
+              Join me in this journey of continuous creation and discovery.
+            </p>
+
           </div>
         </div>
         <div className="lg:pl-20">
           <ul role="list">
-            <SocialLink href="#" icon={XIcon}>
-              Follow on X
-            </SocialLink>
-            <SocialLink href="#" icon={InstagramIcon} className="mt-4">
+            <SocialLink href="https://www.instagram.com/vincent.teune/?img_index=1" icon={InstagramIcon} className="mt-4">
               Follow on Instagram
             </SocialLink>
-            <SocialLink href="#" icon={GitHubIcon} className="mt-4">
+            <SocialLink href="https://github.com/cobalt88" icon={GitHubIcon} className="mt-4">
               Follow on GitHub
             </SocialLink>
-            <SocialLink href="#" icon={LinkedInIcon} className="mt-4">
+            <SocialLink href="https://www.linkedin.com/in/vincent-teune/" icon={LinkedInIcon} className="mt-4">
               Follow on LinkedIn
             </SocialLink>
             <SocialLink
@@ -109,7 +105,7 @@ export default function About() {
               icon={MailIcon}
               className="mt-8 border-t border-zinc-100 pt-8 dark:border-zinc-700/40"
             >
-              spencer@planetaria.tech
+              vincent@vtportfolio.net
             </SocialLink>
           </ul>
         </div>
