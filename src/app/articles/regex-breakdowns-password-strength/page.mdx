@@ -1,0 +1,63 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+
+export const article = {
+  author: 'Vincent Teune',
+  date: '2022-09-20',
+  title: 'Regex Breakdowns - Password Strength Validation',
+  description:
+    'Securing user accounts starts with enforcing strong passwords. This article explores how to use regular expressions (regex) to validate password strength, ensuring that passwords meet specific security criteria.',
+}
+
+export const metadata = {
+  title: article.title,
+  description: article.description,
+}
+
+export default (props) => <ArticleLayout article={article} {...props} />
+
+# What is Regex?
+
+Regular Expression (regex) is a sequence of characters used to check for patterns within strings. It's particularly useful in validating the format and strength of passwords, which are critical to securing user information.
+
+## How it works
+
+A strong password is often required to include a mix of uppercase and lowercase letters, numbers, and special characters. Regex can validate these requirements efficiently. Here's a common regex pattern for a strong password:
+
+```
+  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
+```
+
+This pattern ensures the password has at least one lowercase letter, one uppercase letter, one digit, one special character, and is at least eight characters long.
+
+## Breaking Down The Pattern
+
+- **Minimum Length**:
+
+  - `{8,}` ensures the password is at least eight characters long.
+
+- **Lowercase Letter Requirement**:
+
+  - `(?=.*[a-z])` uses a positive lookahead to assert that there is at least one lowercase letter.
+
+- **Uppercase Letter Requirement**:
+
+  - `(?=.*[A-Z])` asserts that there is at least one uppercase letter.
+
+- **Digit Requirement**:
+
+  - `(?=.*\d)` ensures that at least one digit is present.
+
+- **Special Character Requirement**:
+  - `(?=.*[@$!%*?&])` checks for the presence of at least one special character from the specified set.
+
+## Practical Application
+
+Using this regex pattern, developers can enforce strong password policies, significantly enhancing the security of user accounts. It's a straightforward way to validate password strength on the client side before submission to the server.
+
+However, it's crucial to adapt the regex to fit the specific requirements of your application. For example, you might want to include more special characters or increase the minimum password length.
+
+For those interested in further exploring regex for password validation or other purposes, tools like regex101.com offer a platform for testing and understanding regex patterns in real-time.
+
+In conclusion, regex is an invaluable tool for validating password strength, contributing to the overall security of digital platforms. By understanding and applying the principles behind these patterns, developers can ensure their applications enforce robust password policies, protecting user data from unauthorized access.
+
+Until next time, Stay Secure!

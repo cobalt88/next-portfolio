@@ -1,0 +1,195 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+
+export const article = {
+  author: 'Vincent Teune',
+  date: '2022-06-22',
+  title: 'Regex Breakdowns - URL Validation',
+  description:
+    'Part one of the Regex explanation series, URL String Validation. This article will walk you through the basics of what regex is and how to use it to validate a URL string.',
+}
+
+export const metadata = {
+  title: article.title,
+  description: article.description,
+}
+
+export default (props) => <ArticleLayout article={article} {...props} />
+
+What is Regex?
+
+Regex stands for Regular Expression, and a regular expression is a string of text and special characters used to algorithmically search, compare, and match defined values or patterns in a string. In layman's terms, Regex is a powerful search, filter, and validation tool. Lets look at some examples to better understand how regex works and what it can be used for.
+
+## How it works
+
+Regex can be a little much to take in all at once, and they can range in complexity from something as simple as a regex to match a simple string such as `/([a-z])/` which will match any lower case letters from a-z all the way up to extreemely complex searchin and matching patterns that can be thousands of characters in legth.
+
+The following regular expression may look a bit intimidating, but its actually not that complicated, this particular regex will match a valid url or web address.
+for example:
+www.example.web | http://www.example.web | https://www.exmaple.web | https://example.web | http://blog.example.web are all valid URL formats, and the following regex example will return all of these as a valid match when compared.
+
+```
+  /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/
+```
+
+First thing to point out is that every regex is contained in a boundary defined by two forward slashes:
+
+```
+  /regex goes here/
+```
+
+There are some options for parameters that go outside of that boundary but this one doesn't use them so we will leave that alone for now, just be aware that they do exist.
+
+Next lets break that long string down into more manageable chunks
+
+```html
+<pre>
+       capture group 1    capture group 2   capture group 3  capture group 4  escaped (/)   __end of expression
+              |                  |                  |               |           |          |
+/   ^   (https?:\/\/)   ?  ([\da-z\.-]+)  \. ([a-z\.] {2,6}) ([\/\w \.-]*)  *  \/   ?      $ /
+    |                   |                  |                                |       |
+match at beginning   Preceding group    escaped period             match 0 or    optional
+of the string only      is optional                                more of the 
+                                                                   preceding token
+</pre>
+```
+
+The first thing to look at here is the capture groups. Capture groups are like smaller containers of parameters to search for and match.
+
+## Breaking Down The Capture Groups
+
+- Capture Group 1:
+
+```
+ (https?:\/\/)
+```
+
+This capture group is looking specifically for `https://` or `http://` however, since `/` is used by regex to do something else normally it has to be "escaped" with a `\`
+to escape a character is to use it as its string character, not as a special regex character.
+the `?` is a special quantifier basically saying that the preceding character is optional by allowing the expression to match zero or one of the preceding character, in this case its referring to the letter `s`, since both `http://` and `https://` are valid options for starting a URL string depending on whether or not the endpoint uses a security certificate or enforces https protocols.
+Additionally the entire capture group is optional since the group is followed directly byt another `?` because not every URL has to start with `http://` or `https://`
+
+To summarize: capture group 1 can be broken down as follows:
+
+<pre>
+  match all char Escape the groups that following = http characters | | | ( http
+  s ? \ / \ / ) | | | match 0 or 1 of Escaped characters the preceding (/ and /
+  are 'escaped') character (s)
+</pre>
+
+- Capture Group 2:
+
+```
+  ([\da-z\.-]+)
+```
+
+This capture group has a very different set of parameters than group 1. Lets start with the `[ ]` . In a regex the `[ ]` are used to define a character set or range. For example `[a-z] ` will match any character between a and z (regex is case sensitive however url's are not, which is why it only uses lower case letters in this particular regex).
+
+inside of the `[ ]` there is also a `\d` , you may be tempted to think this means the letter d is an escaped character, however it is not. The character `d `does not signify anything special in regex on its own and therefore is always treated as a character, unless it is preceded by a `\`
+
+`\d` is a regex character class that defines a digit, therefore the expression `[\d a-z]` will match any character that is either a digit or a lower case letter.
+
+Then we have an escaped period: `\.` a hyphen: `-`
+and finally another new quantifier: `+`
+
+The `+` quantifier basically means that it will be allowed to match one or more of the preceding token. In this case the preceding token is a character set that matches any string containing more than 1 character comprised of any digit 0-9, any lower case letter, period, or hyphen. Some valid matches can look like:
+`.ab-c9`, `.`, `tech-blog.`, `about`
+
+Group 2 can be broken down as follows:
+
+```html
+<pre>
+Opening of   any lower case    closing of
+Char Set     letter from a-z   char set
+  |            |                 |
+( [  \d       a-z  \.       -    ]  +  )
+      |            |        |       |
+     Any        escaped  hyphen    plus 
+    Digit       period           quantifier
+
+</pre>
+```
+
+- Capture Group 3:
+
+```
+  ([a-z\.]{2,6})
+```
+
+Capture group 3 shares a lot of the same functionality as group 2. It has a character ser or character range `[a-z]` selecting any lower case characters from `a` through `z`.
+After the character set is declared there is another familiar parameter, the escaped period `\.`, and lastly we have a new a new quantifier: `{ }`. The curly brackets are used specifically to declare how many of the preceding token must be matched.
+
+```html
+<pre>
+Opener     Separator      Closer
+  |           |             |
+  {     2     ,      6      }
+        |            |
+     Minimum       Maximum
+
+</pre>
+```
+
+In this particular example the above quantifier will match a minimum of 2 and a maximum of 6 of the preceding token `[a-z\.]` which means any string comprised of `a-z` and a `.` will be a valid string or a valid match. For example: `abz`, `.com`, `qwert.`, `lkjhgf` are all considered valid. However if you have more than 6 or less than 2 characters or include numbers or upper case letters the string will be considered invalid.
+
+Keep in mind this quantifier does not always have to be written with 2 values, it can be written in the following ways:
+
+```html
+<pre>
+  {1,10} - will match a minimum of 1 of the preceding token and a maximum of 10
+  {1,} - will match 1 or more of the preceding token with no maximum
+  {1} - will match exactly 1 of the preceding token, no more no less.
+</pre>
+```
+
+Depending on the situation the above quantifier options can be very useful.
+
+In summary, group 3 is broken down as follows:
+
+```html
+<pre>
+                Min/Max
+ Char Range    quantifier
+      |            |
+  ( [a-z  \. ]   {2,6}  )
+          |            
+      Escape following
+      character (.)
+
+</pre>
+```
+
+Capture Group 4:
+
+```
+  ([\/\w \.-]*)
+```
+
+Last but not least we have the 4th capture group in our regex example.
+This one again has many of the same things we have already covered and a few new things to look at.
+First up is the character range `[\/\w \.-]` which we can break down pretty easily by now. `\/` is an escaped forward slash, `\w` is an escaped `w`, and `\.` is an escaped `.`, and `-`.
+so the range or set of valid characters in this group are: `/`, `w`, `.`, and `-`.
+After the rage/set declaration we have a new quantifier: `*` which means that the overall string has to have 0 or more of the preceding token. This is a kind of shorthand for `{0,}`, which would also work, but why write out more when you don't need to.
+As a side note this entire capture group is required to create a valid match, a minimum of 1 valid token would need to be included in the string being searched.
+Examples: `www.`, `/`, `.`, `-`
+
+In summary, group 4 can be broken down as follows:
+
+```html
+<pre>
+ Escaped characters   Match 0 or more
+  ( \,  w,  .)        of the preceding token
+    |   |   |            |
+( [ \/  \w  \.  - ]      *  )
+                |
+            Hyphen character
+
+</pre>
+```
+
+## More Stuff
+
+Hopefully by now you are able to understand how this particular regular expression works and you know some of the basics of regex. There is a lot more to regex than this relatively simple example we broke down here but its entirely too much to put in this particular breakdown.
+
+If you are interested in learning more I recommend www.regexr.com as an excellent starting point to your learning path for regex. Also keep an eye out in the future for other tutorials or break-downs of common and or useful regular expressions that I plan to do in the future.
+
+Until next time, Have Fun!

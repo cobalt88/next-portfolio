@@ -2,47 +2,53 @@ import Image from 'next/image'
 
 import { Card } from '@/components/Card'
 import { SimpleLayout } from '@/components/SimpleLayout'
-import logoAnimaginary from '@/images/logos/animaginary.svg'
-import logoCosmos from '@/images/logos/cosmos.svg'
-import logoHelioStream from '@/images/logos/helio-stream.svg'
-import logoOpenShuttle from '@/images/logos/open-shuttle.svg'
-import logoPlanetaria from '@/images/logos/planetaria.svg'
+import recipezLogo from '@/images/logos/recipez-logo.png'
+import circleLogo from '@/images/logos/circle-logo.png'
+import githubLogo from '@/images/logos/github-logo.png'
+import htmlLogo from '@/images/logos/html-logo.png'
 
 const projects = [
   {
-    name: 'Planetaria',
+    name: 'Circle Connect',
     description:
-      'Creating technology to empower civilians to explore space on their own terms.',
-    link: { href: 'http://planetaria.tech', label: 'planetaria.tech' },
-    logo: logoPlanetaria,
+      'An all in one internal hub for Circle Logistics Inc. Everything from internal data analytics to freight quoting and tracking.',
+    link: { href: 'https://connect.circle-analytics.com', label: 'connect.circle-analytics.com' },
+    logo: circleLogo,
   },
   {
-    name: 'Animaginary',
+    name: 'Frankenprinter',
     description:
-      'High performance web animation library, hand-written in optimized WASM.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoAnimaginary,
+      'A customized version of the popular 3D printer firmware Marlin 2.0 for my Frankenprinter build (once uppon a time an Ender 3) ',
+    link: { href: 'https://github.com/cobalt88/Frankenprinter', label: 'github.com' },
+    logo: githubLogo,
   },
   {
-    name: 'HelioStream',
+    name: 'Reference Site',
     description:
-      'Real-time video streaming library, optimized for interstellar transmission.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoHelioStream,
+      'A never ending project that I started back when I was attenrding a coding bootcamp. The idea was to build out a reference site for HTML and CSS, but it has since fallen into the pile of unfinished projects',
+    link: { href: 'https://cobalt88.github.io/reference_site/', label: 'HTML Reference' },
+    logo: htmlLogo,
   },
   {
-    name: 'cosmOS',
+    name: 'CPS-API',
     description:
-      'The operating system that powers our Planetaria space shuttles.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoCosmos,
+      'City Populations API. An api with a static MongoDB Dataset that was built more to demonstrate how to build a high throughput multi-threaded REST API with Node.JS and Express.',
+    link: { href: 'https://github.com/cobalt88/CPS-API', label: 'github.com' },
+    logo: githubLogo,
   },
   {
-    name: 'OpenShuttle',
+    name: 'Data Logger',
     description:
-      'The schematics for the first rocket I designed that successfully made it to orbit.',
-    link: { href: '#', label: 'github.com' },
-    logo: logoOpenShuttle,
+      'A javascript module that can be used to log system events inside a server. This is a reltively simple utility that I regularly use in my projects to log events and errors to a file or console.',
+    link: { href: 'https://github.com/cobalt88/data-logger', label: 'github.com' },
+    logo: githubLogo,
+  },
+  {
+    name: 'RecipEZ',
+    description:
+      'Once upon a time I wanteed to build a recipe website. This was as far as I got.',
+    link: { href: 'https://recipez.us/', label: 'recipez.us' },
+    logo: recipezLogo,
   },
 ]
 

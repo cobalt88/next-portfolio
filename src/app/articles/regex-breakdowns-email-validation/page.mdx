@@ -1,0 +1,80 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+
+export const article = {
+  author: 'Vincent Teune',
+  date: '2022-07-12',
+  title: 'Regex Breakdowns - Email Validation',
+  description:
+    'In the digital age, validating email addresses has become a crucial task for developers to ensure data integrity and effective communication. This article dives into the intricacies of using regular expressions (regex) for email validation, providing a tool that is both powerful and versatile in parsing and verifying email formats.',
+}
+
+export const metadata = {
+  title: article.title,
+  description: article.description,
+}
+
+export default (props) => <ArticleLayout article={article} {...props} />
+
+# What is Regex?
+
+Regular Expression, or regex, is a sequence of characters and special symbols used for searching, matching, and manipulating strings based on defined patterns. It's a fundamental tool in programming for tasks such as data validation, and one of its practical uses is in email validation.
+
+## How it works
+
+Regular expressions can vary from simple patterns to complex ones that can validate intricate string formats. Email addresses, with their standardized format, present a common use case for regex. An email address typically consists of a local part, an "@" symbol, and a domain part. The complexity in validating email addresses lies in accommodating a wide range of valid characters and ensuring the overall format conforms to standards.
+
+Here’s an example of a regex pattern that validates a basic email address format:
+
+```
+  /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+```
+
+Let's break down this regex to understand how it validates an email address:
+
+```html
+<pre>
+       User Name          Domain Name       Top-Level Domain
+           |                   |                   |
+  / ^ [a-zA-Z0-9._%+-]+  @  [a-zA-Z0-9.-]+  \.  [a-zA-Z]{2,} $ /
+</pre>
+```
+
+## Breaking Down The Pattern
+
+- **Username Part**:
+
+```
+  ^[a-zA-Z0-9._%+-]+
+```
+
+This portion matches the start of the string and allows for uppercase and lowercase letters, digits, dots (.), underscores (\_), percent signs (%), plus signs (+), and hyphens (-). The `+` quantifier means that one or more of the allowed characters must be present.
+
+- **@ Symbol**:
+
+The `@` character is a mandatory part of the email format, serving as a separator between the username and the domain name parts.
+
+- **Domain Name Part**:
+
+```
+  [a-zA-Z0-9.-]+
+```
+
+Similar to the username part, this section allows for letters, digits, dots, and hyphens. The pattern ensures that the domain name contains at least one of these characters.
+
+- **Top-Level Domain (TLD) Part**:
+
+```
+  \.[a-zA-Z]{2,}$
+```
+
+The TLD must start with a dot (.) followed by two or more letters. This matches common TLDs like .com, .org, or country-specific TLDs like .uk, .us. The `{2,}` quantifier specifies that the TLD must have at least two letters.
+
+## Practical Application
+
+Understanding and utilizing this regex pattern allows developers to validate email addresses effectively, ensuring they conform to a basic yet comprehensive format. While this regex covers a wide range of valid email formats, it's essential to consider the evolving standards and unique cases that may arise.
+
+For those looking to deepen their understanding of regex for email validation or other purposes, resources like regex101.com provide an interactive platform for testing and learning more about regex patterns.
+
+In conclusion, regex offers a powerful method for validating email addresses, ensuring data integrity and enhancing user experience. By breaking down and understanding each part of the regex pattern, developers can apply these principles to various data validation scenarios, making their applications more robust and reliable.
+
+Until next time, Happy Coding!

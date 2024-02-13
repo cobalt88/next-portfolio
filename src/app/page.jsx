@@ -20,6 +20,10 @@ import image2 from '@/images/photos/image-2.jpg'
 import image3 from '@/images/photos/image-3.jpg'
 import image4 from '@/images/photos/image-4.jpg'
 import image5 from '@/images/photos/image-5.jpg'
+import kdcLogo from '@/images/logos/kdc-logo.png'
+import circleLogo from '@/images/logos/circle-logo.png'
+import marriottLogo from '@/images/logos/marriott-logo.png'
+import twoLogo from '@/images/logos/2u-logo.png'
 import { getAllArticles } from '@/lib/articles'
 import { formatDate } from '@/lib/formatDate'
 
@@ -174,35 +178,45 @@ function Role({ role }) {
 function Resume() {
   let resume = [
     {
-      company: 'Planetaria',
-      title: 'CEO',
-      logo: logoPlanetaria,
-      start: '2019',
+      company: 'Kiwi Dragon Creations LLC',
+      title: 'CEO/Firmware Engineer',
+      logo: kdcLogo,
+      start: '2020',
       end: {
         label: 'Present',
         dateTime: new Date().getFullYear().toString(),
       },
     },
     {
-      company: 'Airbnb',
-      title: 'Product Designer',
-      logo: logoAirbnb,
-      start: '2014',
-      end: '2019',
+      company: 'Circle Logistics Inc.',
+      title: 'Software Engineer',
+      logo: circleLogo,
+      start: '2022',
+      end: {
+        label: 'Present',
+        dateTime: new Date().getFullYear().toString(),
+      },
     },
     {
-      company: 'Facebook',
-      title: 'iOS Software Engineer',
+      company: 'EdX/2U Bootcamps',
+      title: 'Full Stack Instructional Specialist',
+      logo: twoLogo,
+      start: '2022',
+      end: '2024'
+    },
+    {
+      company: 'LocalEyes Inc',
+      title: 'Software Engineer',
       logo: logoFacebook,
-      start: '2011',
-      end: '2014',
+      start: '2023',
+      end: '2023',
     },
     {
-      company: 'Starbucks',
-      title: 'Shift Supervisor',
-      logo: logoStarbucks,
-      start: '2008',
-      end: '2011',
+      company: 'Marriott International',
+      title: 'Maintenance Engineer III',
+      logo: marriottLogo,
+      start: '2017',
+      end: '2022',
     },
   ]
 
@@ -217,13 +231,14 @@ function Resume() {
           <Role key={roleIndex} role={role} />
         ))}
       </ol>
-      <Button href="#" variant="secondary" className="group mt-6 w-full">
+      <Button href="https://docs.google.com/document/d/1Q1Sl4sMPv6pIcQvm2gAHaoantFUPXX1i/export?format=pdf" variant="secondary" className="group mt-6 w-full">
         Download CV
         <ArrowDownIcon className="h-4 w-4 stroke-zinc-400 transition group-active:stroke-zinc-600 dark:group-hover:stroke-zinc-50 dark:group-active:stroke-zinc-50" />
       </Button>
     </div>
   )
 }
+// https://docs.google.com/document/d/1Q1Sl4sMPv6pIcQvm2gAHaoantFUPXX1i/edit?usp=sharing&ouid=116841148953174534163&rtpof=true&sd=true
 
 function Photos() {
   let rotations = ['rotate-2', '-rotate-2', 'rotate-2', 'rotate-2', '-rotate-2']
@@ -260,7 +275,7 @@ export default async function Home() {
       <Container className="mt-9">
         <div className="max-w-2xl">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
-            Software Engineer, founder, and weekend racecar driver.
+            Software Engineer, Entrepeneur, and weekend racecar driver.
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
             I’m Vince, a software engineer and entrepreneur with a need for speed based in Central FLorida.
