@@ -64,7 +64,7 @@ export default function About() {
             <p>
               From a young age, the thrill of creation has been the driving force in my life.
               My journey began with an insatiable curiosity and a love for making things.
-              It didn't matter if the material was wood, metal, plastic, or the digital realm of silicon – each medium was a new canvas for my imagination.
+              It didn&apos;t matter if the material was wood, metal, plastic, or the digital realm of silicon – each medium was a new canvas for my imagination.
               Transforming ideas into tangible, unique creations has always been a source of exhilaration for me.
             </p>
             <p>
@@ -74,7 +74,7 @@ export default function About() {
             </p>
             <p>
               This early passion laid the foundation for an eclectic and fulfilling career.
-              I've had the privilege of weaving my love for innovation through various industries, from mining to manufacturing, and from food and beverage to hospitality.
+              I&apos;ve had the privilege of weaving my love for innovation through various industries, from mining to manufacturing, and from food and beverage to hospitality.
               My professional journey has taken me through roles as diverse as IT specialist, software engineer, Postmaster, and CEO.
               Each experience has broadened my perspective and reinforced a fundamental belief: Everything was once impossible, until someone did it.
             </p>
@@ -83,7 +83,7 @@ export default function About() {
               Parallel to this, I continue to explore the digital world as a full-time software engineer in the logistics sector. And for a touch of personal flair, I daily drive my racecar – when it decides to cooperate!
             </p>
             <p>
-              Through every endeavor, my mission remains the same: to bring innovative ideas to life and to keep pushing the boundaries of what's possible.
+              Through every endeavor, my mission remains the same: to bring innovative ideas to life and to keep pushing the boundaries of what&apos;s possible.
               Join me in this journey of continuous creation and discovery.
             </p>
 
