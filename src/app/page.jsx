@@ -11,10 +11,8 @@ import {
   LinkedInIcon,
   XIcon,
 } from '@/components/SocialIcons'
-import logoAirbnb from '@/images/logos/airbnb.svg'
+import localeyesLogo from '@/images/logos/localeyesLogo.jpg'
 import logoFacebook from '@/images/logos/facebook.svg'
-import logoPlanetaria from '@/images/logos/planetaria.svg'
-import logoStarbucks from '@/images/logos/starbucks.svg'
 import image1 from '@/images/photos/image-1.jpg'
 import image2 from '@/images/photos/image-2.jpg'
 import image3 from '@/images/photos/image-3.jpg'
@@ -207,7 +205,7 @@ function Resume() {
     {
       company: 'LocalEyes Inc',
       title: 'Software Engineer',
-      logo: logoFacebook,
+      logo: localeyesLogo,
       start: '2023',
       end: '2023',
     },

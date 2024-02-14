@@ -5,9 +5,9 @@ import '@/styles/tailwind.css'
 
 export const metadata = {
   title: {
-    template: '%s - Vincent Teune',
+    template: 'Vincent Teune',
     default:
-      'Vincent Teune - Software Engineer, Entrepeneur, and Racecar Driver',
+      'Vincent Teune Professional Portfolio',
   },
   description:
     'Hi there my names Vince. I\'m a software engineer, CEO/CTO of Kiwi Dragon Creations LLC, and a weekend racecar driver.',
