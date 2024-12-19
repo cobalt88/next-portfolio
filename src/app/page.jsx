@@ -188,7 +188,7 @@ function Resume() {
     },
     {
       company: 'The Walt Disney Company (Contract)',
-      title: 'Zigbee Wireless Technical Specialist',
+      title: 'Zigbee Wireless Engineer',
       logo: disneyLogo,
       start: '2024',
       end: {
