@@ -22,6 +22,7 @@ import kdcLogo from '@/images/logos/kdc-logo.png'
 import circleLogo from '@/images/logos/circle-logo.png'
 import marriottLogo from '@/images/logos/marriott-logo.png'
 import twoLogo from '@/images/logos/2u-logo.png'
+import disneyLogo from '@/images/logos/Disney_D.png'
 import { getAllArticles } from '@/lib/articles'
 import { formatDate } from '@/lib/formatDate'
 
@@ -177,9 +178,19 @@ function Resume() {
   let resume = [
     {
       company: 'Kiwi Dragon Creations LLC',
-      title: 'CEO/Firmware Engineer',
+      title: 'Founder, Creator, Engineer',
       logo: kdcLogo,
       start: '2020',
+      end: {
+        label: 'Present',
+        dateTime: new Date().getFullYear().toString(),
+      },
+    },
+    {
+      company: 'The Walt Disney Company (Contract)',
+      title: 'Zigbee Wireless Technical Specialist',
+      logo: disneyLogo,
+      start: '2024',
       end: {
         label: 'Present',
         dateTime: new Date().getFullYear().toString(),
@@ -191,7 +202,7 @@ function Resume() {
       logo: circleLogo,
       start: '2022',
       end: {
-        label: 'Present',
+        label: '2024',
         dateTime: new Date().getFullYear().toString(),
       },
     },
